@@ -1,0 +1,6 @@
+pyTelegramBotAPI
+schedule
+feedparser
+requests
+beautifulsoup4
+mistralai
