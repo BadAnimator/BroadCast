@@ -3,4 +3,4 @@ schedule
 feedparser
 requests
 beautifulsoup4
-mistralai
+mistralai==1.12.4
