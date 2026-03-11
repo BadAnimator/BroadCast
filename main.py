@@ -1,5 +1,5 @@
 import os
-os.system("pip install pyTelegramBotAPI schedule feedparser requests beautifulsoup4 mistralai")
+os.system("pip install pyTelegramBotAPI schedule feedparser requests beautifulsoup4 mistralai==1.12.4")
 
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -689,3 +689,4 @@ if __name__ == '__main__':
     logging.info("Bot started")
 
     bot.infinity_polling()
+
