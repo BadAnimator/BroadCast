@@ -40,7 +40,7 @@ CHANNELS = {
             "https://xakep.ru/feed/",
             "https://habr.com/ru/rss/hubs/infosec/articles/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1002515949890: {
         "title": "Stalin-OSINT",
@@ -51,7 +51,7 @@ CHANNELS = {
             "https://www.osintme.com/index.php/feed/",
             "https://medium.com/feed/tag/osint"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1002758779598: {
         "title": "True-Killer",
@@ -62,7 +62,7 @@ CHANNELS = {
             "https://lenta.ru/rss/topics/criminal/",
             "https://www.kommersant.ru/RSS/news.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1002914714454: {
         "title": "ARECTOBAH_3A_PKH",
@@ -73,7 +73,7 @@ CHANNELS = {
             "https://pikabu.ru/feed/feed.rss",
             "https://www.anekdot.ru/rss/export_joke_new.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003021980862: {
         "title": "DARK-IntenretS",
@@ -84,7 +84,7 @@ CHANNELS = {
             "https://habr.com/ru/rss/hubs/infosec/articles/",
             "https://www.securitylab.ru/export/rss/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1002468234153: {
         "title": "Attack-APATIA",
@@ -95,7 +95,7 @@ CHANNELS = {
             "https://xakep.ru/feed/",
             "https://www.securitylab.ru/export/rss/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003391258799: {
         "title": "Поиск людей бот",
@@ -105,7 +105,7 @@ CHANNELS = {
         "rss_sources": [
             "https://medium.com/feed/tag/osint"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003395961959: {
         "title": "Пробивчик?",
@@ -115,7 +115,7 @@ CHANNELS = {
         "rss_sources": [
             "https://www.opennet.ru/opennews/opennews_all.rss"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 8
     },
     -1003381982796: {
         "title": "YandexRU",
@@ -125,7 +125,7 @@ CHANNELS = {
         "rss_sources": [
             "https://yandex.ru/news/export/rss2.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003546469611: {
         "title": "T",
@@ -136,7 +136,7 @@ CHANNELS = {
             "https://habr.com/ru/rss/hubs/ai/articles/",
             "https://techcrunch.com/feed/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003220451594: {
         "title": "M",
@@ -147,7 +147,7 @@ CHANNELS = {
             "https://habr.com/ru/rss/news/",
             "https://lenta.ru/rss/latest/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003252915826: {
         "title": "Reklama",
@@ -158,7 +158,7 @@ CHANNELS = {
             "https://vc.ru/rss",
             "https://www.cossa.ru/events/rss/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003497443207: {
         "title": "Durov",
@@ -169,7 +169,7 @@ CHANNELS = {
             "https://lenta.ru/rss/latest/",
             "https://habr.com/ru/rss/news/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003863551288: {
         "title": "Дедушка",
@@ -180,7 +180,7 @@ CHANNELS = {
             "https://www.adme.ru/feed/",
             "https://www.anekdot.ru/rss/export_joke_new.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003888741797: {
         "title": "Дуров",
@@ -190,7 +190,7 @@ CHANNELS = {
         "rss_sources": [
             "https://habr.com/ru/rss/news/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003867449619: {
         "title": "Убийца мира",
@@ -201,7 +201,7 @@ CHANNELS = {
             "https://lenta.ru/rss/topics/criminal/",
             "https://www.kommersant.ru/RSS/news.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003539952195: {
         "title": "🕵️‍♂️ OSINT (NEW)",
@@ -212,7 +212,7 @@ CHANNELS = {
             "https://medium.com/feed/tag/osint",
             "https://www.osintme.com/index.php/feed/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003740108157: {
         "title": "GitHub",
@@ -223,7 +223,7 @@ CHANNELS = {
             "https://github.blog/feed/",
             "https://habr.com/ru/rss/hubs/programming/articles/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003825497899: {
         "title": "Handle",
@@ -233,7 +233,7 @@ CHANNELS = {
         "rss_sources": [
             "https://habr.com/ru/rss/hubs/data_engineering/articles/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003715932763: {
         "title": "It's ILON!",
@@ -244,7 +244,7 @@ CHANNELS = {
             "https://www.space.com/feeds/all",
             "https://techcrunch.com/feed/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003895644764: {
         "title": "Вечеринка Эпштейна!",
@@ -255,7 +255,7 @@ CHANNELS = {
             "https://lenta.ru/rss/latest/",
             "https://www.kommersant.ru/RSS/news.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003754883430: {
         "title": "SherlockBot",
@@ -265,7 +265,7 @@ CHANNELS = {
         "rss_sources": [
             "https://medium.com/feed/tag/osint"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003836056023: {
         "title": "Vektor",
@@ -276,7 +276,7 @@ CHANNELS = {
             "https://xakep.ru/feed/",
             "https://www.securitylab.ru/export/rss/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003896483277: {
         "title": "Супер-человек",
@@ -287,7 +287,7 @@ CHANNELS = {
             "https://takzdorovo.ru/rss/",
             "https://www.psychologies.ru/feed/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003814514563: {
         "title": "MAXXX",
@@ -298,7 +298,7 @@ CHANNELS = {
             "https://habr.com/ru/rss/news/",
             "https://lenta.ru/rss/latest/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003727058869: {
         "title": "Помидор",
@@ -309,7 +309,7 @@ CHANNELS = {
             "https://www.supersadovnik.ru/export/rss.xml",
             "https://7dach.ru/feed"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003802909728: {
         "title": "Девушка",
@@ -320,7 +320,7 @@ CHANNELS = {
             "https://www.cosmo.ru/feed/",
             "https://www.psychologies.ru/feed/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003784125451: {
         "title": "ass",
@@ -331,7 +331,7 @@ CHANNELS = {
             "https://pikabu.ru/feed/feed.rss",
             "https://www.anekdot.ru/rss/export_joke_new.xml"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     },
     -1003809459289: {
         "title": "Uss",
@@ -342,7 +342,7 @@ CHANNELS = {
             "https://lenta.ru/rss/latest/",
             "https://habr.com/ru/rss/news/"
         ],
-        "posts_per_day": 2
+        "posts_per_day": 6
     }
 }
 
@@ -476,7 +476,7 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
         )
         text = response.choices[0].message.content.strip().replace("<br>", "\n")
         text = clean_html_for_telegram(text)
-        text = text + "\n⭐️ Лучший бот с ИИ: @WortexAI_ChatBot"
+        text = text + "\n\n⭐️ Лучший бот с ИИ: @WortexAI_ChatBot"
         if is_valid_html(text):
             return text
         else:
@@ -687,6 +687,4 @@ if __name__ == '__main__':
 
     # Запускаем бота
     logging.info("Bot started")
-
     bot.infinity_polling()
-
