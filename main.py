@@ -462,8 +462,11 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
 3. **Запрещены**: <u>, <ins>, <s>, <strike>, <del>, <ol>, <ul>, <li>, <br>, <p>, <div> и любые другие теги.
 4. **Перенос строки**: между абзацами — одна пустая строка (два перевода строки). Внутри абзаца переносы не нужны.
 5. **Списки**: если нужен список, используй символ • (U+2022) или цифры с точкой в начале строки, но не HTML-теги.
-6. **Длина поста**: 400–700 символов (без учёта тегов).
+6. **Длина поста**: 500–700 символов (без учёта тегов).
 7. **Не злоупотребляй эмодзи** — максимум 2–3 на пост, если они уместны.
+8. **Не используй заглушки** — никаких example.com, и подобного. Не знаешь точной ссылки на ресурс - не вставляй.
+9. **Никаких "пишите в комментариях** — канал не имеет чата, или комментариев.
+10. **Максимально человечно** — старайся писать максимально человечно, не роботизированно.
 
 Материал для поста:
 {news_text}"""
@@ -471,12 +474,12 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
         response = mistral_client.chat.complete(
             model="labs-mistral-small-creative",
             messages=[{"role": "user", "content": prompt}],
-            temperature=1.4,
-            max_tokens=4096
+            temperature=1.5,
+            max_tokens=8192
         )
         text = response.choices[0].message.content.strip().replace("<br>", "\n")
         text = clean_html_for_telegram(text)
-        text = text + "\n\n⭐️ Лучший бот с ИИ: @WortexAI_ChatBot"
+        text = text + "\n\n⭐️ Лучший ИИ-бот: @WortexAI_ChatBot"
         if is_valid_html(text):
             return text
         else:
@@ -688,3 +691,4 @@ if __name__ == '__main__':
     # Запускаем бота
     logging.info("Bot started")
     bot.infinity_polling()
+
