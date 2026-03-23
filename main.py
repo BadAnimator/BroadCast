@@ -20,9 +20,10 @@ from typing import Dict, List, Optional
 # ========================
 #       НАСТРОЙКИ
 # ========================
-TELEGRAM_BOT_TOKEN = "8650040948:AAHbVAM9BIuETrnWcDFI66cfj1cWhajJd6M"            # Токен твоего бота
-MISTRAL_API_KEY = "6bHT7e3TE0TPnfdsNsols5JkkgfSB8VC"         # Ключ от Mistral AI
-ADMINS = [6036761167, 6419615188]                   # ID администраторов (можно несколько)
+TELEGRAM_BOT_TOKEN = "8650040948:AAHbVAM9BIuETrnWcDFI66cfj1cWhajJd6M"  # Токен бота
+MISTRAL_API_KEY = "6bHT7e3TE0TPnfdsNsols5JkkgfSB8VC"                   # Ключ от Mistral AI
+ADMINS = [6036761167, 6419615188]                                      # ID администраторов
+GITHUB_URL = "https://github.com/BadAnimator/BroadCast/raw/refs/heads/main/Config.json"
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 mistral_client = Mistral(api_key=MISTRAL_API_KEY)
@@ -336,7 +337,7 @@ CHANNELS = {
     }
 }
 
-def update_channels() -> bool, str:
+def update_channels():
     global CHANNELS
     try:
         data = requests.get(GITHUB_URL).json()
