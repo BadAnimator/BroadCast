@@ -4,6 +4,7 @@ os.system("pip install pyTelegramBotAPI schedule feedparser requests beautifulso
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import schedule
+import json
 import time
 import threading
 import logging
@@ -124,17 +125,6 @@ CHANNELS = {
         "topics": ["яндекс", "технологии", "новости", "поиск"],
         "rss_sources": [
             "https://yandex.ru/news/export/rss2.xml"
-        ],
-        "posts_per_day": 6
-    },
-    -1003546469611: {
-        "title": "T",
-        "description": "Технологии, робототехника, искусственный интеллект.",
-        "link": "https://t.me/transformer16",
-        "topics": ["робототехника", "искусственный интеллект", "нейросети", "технологии"],
-        "rss_sources": [
-            "https://habr.com/ru/rss/hubs/ai/articles/",
-            "https://techcrunch.com/feed/"
         ],
         "posts_per_day": 6
     },
@@ -346,6 +336,15 @@ CHANNELS = {
     }
 }
 
+def update_channels() -> bool, str:
+    global CHANNELS
+    try:
+        data = requests.get(GITHUB_URL).json()
+        CHANNELS = data
+        return True, None
+    except Exception as e:
+        return False, str(e)
+
 # ========================
 #    ОЧЕРЕДЬ МОДЕРАЦИИ
 # ========================
@@ -457,7 +456,7 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
 Напиши информативный и интересный пост на основе следующего материала. Пост должен быть уникальным, не копируй материал дословно.
 
 ### Технические требования (строго соблюдать):
-1. **Только HTML-разметка** — Markdown запрещён категорически.
+1. **Только HTML-разметка** — Markdown запрещён категорически. Вместо двойных звёздочек используй тег <b>.
 2. **Разрешённые теги**: <b>, <i>, <a href="...">, <code>, <pre>.
 3. **Запрещены**: <u>, <ins>, <s>, <strike>, <del>, <ol>, <ul>, <li>, <br>, <p>, <div> и любые другие теги.
 4. **Перенос строки**: между абзацами — одна пустая строка (два перевода строки). Внутри абзаца переносы не нужны.
@@ -465,8 +464,10 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
 6. **Длина поста**: 500–700 символов (без учёта тегов).
 7. **Не злоупотребляй эмодзи** — максимум 2–3 на пост, если они уместны.
 8. **Не используй заглушки** — никаких example.com, и подобного. Не знаешь точной ссылки на ресурс - не вставляй.
-9. **Никаких "пишите в комментариях** — канал не имеет чата, или комментариев.
+9. **Никаких "пишите в комментариях** — канал не имеет чата, или комментариев. Не упоминай комментарии вообще.
 10. **Максимально человечно** — старайся писать максимально человечно, не роботизированно.
+11. **Ничего не делать админам** - Не пиши в начале "Вот ваш пост в указанном формате...", пиши сразу текст без лишней воды.
+12. **Ничего про "смотрите в шапке канала..."** - Сам по себе канал ничего подобного не имеет. Не добавляй таким образом работы модерам.
 
 Материал для поста:
 {news_text}"""
@@ -474,12 +475,12 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
         response = mistral_client.chat.complete(
             model="labs-mistral-small-creative",
             messages=[{"role": "user", "content": prompt}],
-            temperature=1.5,
+            temperature=1.2,
             max_tokens=8192
         )
         text = response.choices[0].message.content.strip().replace("<br>", "\n")
         text = clean_html_for_telegram(text)
-        text = text + "\n\n⭐️ Лучший ИИ-бот: @WortexAI_ChatBot"
+        text = text + "\n\n⭐️ Лучший бот с ИИ: @WortexAI_ChatBot"
         if is_valid_html(text):
             return text
         else:
@@ -546,12 +547,27 @@ def initial_generation():
 # ========================
 #    ОБРАБОТЧИКИ КОМАНД
 # ========================
-@bot.message_handler(commands=['start'])
-def start(message):
-    if message.from_user.id in ADMINS:
-        bot.reply_to(message, "Привет, админ! Я буду присылать посты на модерацию.")
+@bot.message_handler(content_types=['text'])
+def handle_message(message):
+    cid = message.chat.id
+    mid = message.id
+    txt = message.text.lower()
+    if txt == "/start":
+        if message.from_user.id in ADMINS:
+            bot.reply_to(message, "Привет, админ! Я буду присылать посты на модерацию.")
+        else:
+            bot.reply_to(message, "Я бот для автоматического постинга. Доступ только администраторам.")
+    elif txt == "/update":
+        if cid in ADMINS:
+            Status, Error = update_channels()
+            if Status:
+                bot.reply_to(message, f"Обновление прошло успешно! Новые данные загружены!\nВсего каналов: {len(CHANNELS)}")
+            else:
+                bot.reply_to(message, f"Ошибка Обновления.\nОшибка: {Error}")
+        else:
+            bot.reply_to(message, "Простите, но вы не администратор.")
     else:
-        bot.reply_to(message, "Я бот для автоматического постинга. Доступ только администраторам.")
+        bot.reply_to(message, "Простите, неизвестная команда.")
 
 # ========================
 #    ОБРАБОТЧИК КОЛБЭКОВ
@@ -672,7 +688,7 @@ def run_schedule():
     """Запускает планировщик в фоновом потоке."""
     while True:
         schedule.run_pending()
-        time.sleep(60)
+        time.sleep(1)
 
 # ========================
 #    ЗАПУСК
@@ -691,4 +707,3 @@ if __name__ == '__main__':
     # Запускаем бота
     logging.info("Bot started")
     bot.infinity_polling()
-
