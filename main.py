@@ -20,7 +20,7 @@ from typing import Dict, List, Optional
 # ========================
 #       НАСТРОЙКИ
 # ========================
-TELEGRAM_BOT_TOKEN = "8650040948:AAHbVAM9BIuETrnWcDFI66cfj1cWhajJd6M"  # Токен бота
+TELEGRAM_BOT_TOKEN = "8650040948:AAHeUQCyKC_ml6q0sKPj54nkI2lqz4L6gZY"  # Токен бота
 MISTRAL_API_KEY = "6bHT7e3TE0TPnfdsNsols5JkkgfSB8VC"                   # Ключ от Mistral AI
 ADMINS = [6036761167, 6419615188]                                      # ID администраторов
 GITHUB_URL = "https://github.com/BadAnimator/BroadCast/raw/refs/heads/main/Config.json"
