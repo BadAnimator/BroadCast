@@ -750,6 +750,12 @@ def initial_generation():
 def handle_message(message):
     cid = message.chat.id
     txt = message.text.lower()
+    if not cid in ADMINS:
+        bot.reply_to(
+            message,
+            "Вы не админ."
+        )
+        return
 
     if txt == "/start":
         if message.from_user.id in ADMINS:
@@ -785,6 +791,24 @@ def handle_message(message):
                 message,
                 "Вы не админ."
             )
+    elif txt.startswith("/broadcast"):
+        if txt == "/broadcast":
+            bot.reply_to(
+                message,
+                "Использование: /broadcast <текст>"
+            )
+            return
+        text = message.text[len("/broadcast "):].strip()
+        bot.send_message(cid, "Рассылка началась...")
+        success, errors = 0, 0
+        for channel in CHANNELS:
+            try:
+                bot.send_message(channel, parse_mode="HTML")
+                success+=1
+            except Exception as e:
+                errors+=1
+            time.sleep(0.5)
+        bot.send_message(cid, f"Успешно: {success}\nОшибок: {errors}")
 
     else:
         bot.reply_to(
