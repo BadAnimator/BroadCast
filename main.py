@@ -803,7 +803,7 @@ def handle_message(message):
         success, errors = 0, 0
         for channel in CHANNELS:
             try:
-                bot.send_message(channel, parse_mode="HTML")
+                bot.send_message(channel, text, parse_mode="HTML")
                 success+=1
             except Exception as e:
                 errors+=1
