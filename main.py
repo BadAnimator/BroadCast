@@ -563,7 +563,7 @@ def generate_post(channel_id: int, topics: List[str], news_text: str, attempt: i
 
     try:
         response = mistral_client.chat.complete(
-            model="labs-mistral-small-creative",
+            model="mistral-large-latest",
             messages=[
                 {
                     "role": "user",
